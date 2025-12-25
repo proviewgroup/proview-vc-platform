@@ -1,16 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Header } from './components/Header';
-import { translations } from './translations';
-import { Language } from './types';
-import { DashboardMockup } from './components/DashboardMockup';
-import { Logo } from './components/Logo';
-import { ChatWidget } from './components/ChatWidget';
-import { ContactForm } from './components/ContactForm';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Header } from './components/Header.tsx';
+import { translations } from './translations.ts';
+import { Language } from './types.ts';
+import { DashboardMockup } from './components/DashboardMockup.tsx';
+import { Logo } from './components/Logo.tsx';
+import { ChatWidget } from './components/ChatWidget.tsx';
+import { ContactForm } from './components/ContactForm.tsx';
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>('en'); // Default to English
+  const [lang, setLang] = useState<Language>('en'); 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const t = translations[lang];
 
@@ -257,7 +257,6 @@ const App: React.FC = () => {
                     className="group relative overflow-hidden rounded-[40px] bg-slate-900/40 border border-white/5 p-8 md:p-12 text-left backdrop-blur-sm transition-all hover:bg-slate-900/60 hover:border-emerald-500/30"
                   >
                     <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-                      {/* Founder Image Circle Container */}
                       <div className="relative h-48 w-48 flex-shrink-0">
                         <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-2xl group-hover:opacity-60 transition-opacity"></div>
                         <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-slate-950 bg-slate-800 shadow-2xl">
@@ -266,7 +265,6 @@ const App: React.FC = () => {
                             alt={founder.name}
                             className="h-full w-full object-cover object-top transition-all duration-700 group-hover:scale-110"
                           />
-                          <div className="absolute inset-x-0 h-[2px] bg-emerald-500/40 blur-[1px] -translate-y-full group-hover:animate-[scan_3s_infinite_ease-in-out]"></div>
                         </div>
                       </div>
 
@@ -288,52 +286,27 @@ const App: React.FC = () => {
         </section>
 
         {/* Tech Stack Section */}
-        <section className="py-24 px-6 overflow-hidden">
+        <section className="py-24 px-6">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col items-center text-center">
               <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-4">{t.tech.badge}</span>
               <h2 className="font-heading text-4xl font-bold text-white mb-16">{t.tech.title}</h2>
               
-              <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:gap-24 items-center">
-                <div className="flex flex-col items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
-                   <div className="flex items-center gap-3">
-                     <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 4.5l-7.5 4.3v8.6L12 21.7l7.5-4.3v-8.6L12 4.5z" fill="#4285F4"/>
-                        <path d="M12 7.8l-4.5 2.6v5.2l4.5 2.6 4.5-2.6v-5.2l-4.5-2.6z" fill="#34A853"/>
-                     </svg>
-                     <span className="text-xl font-bold text-white">{t.tech.googleCloud}</span>
-                   </div>
-                   <p className="text-[10px] text-slate-500 font-mono">Infrastructure Provider</p>
+              <div className="grid grid-cols-2 gap-12 md:grid-cols-4 items-center">
+                <div className="flex flex-col items-center gap-4">
+                  <span className="text-xl font-bold text-white">{t.tech.googleCloud}</span>
                 </div>
-                
-                <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="flex flex-col items-center gap-2">
                   <span className="text-lg font-bold text-slate-300">Vertex AI</span>
-                  <p className="text-[10px] text-slate-500 font-mono">Generative Intelligence</p>
                 </div>
-
-                <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="flex flex-col items-center gap-2">
                   <span className="text-lg font-bold text-slate-300">BigQuery</span>
-                  <p className="text-[10px] text-slate-500 font-mono">Data Warehouse</p>
                 </div>
-
-                <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="flex flex-col items-center gap-2">
                   <span className="text-lg font-bold text-slate-300">K8s Cluster</span>
-                  <p className="text-[10px] text-slate-500 font-mono">Auto-scaling GKE</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Investors & Ecosystem */}
-        <section className="bg-emerald-500 py-16">
-          <div className="mx-auto max-w-7xl px-6 text-center">
-             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-emerald-900/50 mb-12">Institutional Network</h3>
-             <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-60">
-                {["Sequoia", "a16z", "Accel", "Google For Startups", "Y Combinator"].map((partner) => (
-                  <span key={partner} className="text-2xl font-bold text-emerald-950 italic">{partner}</span>
-                ))}
-             </div>
           </div>
         </section>
       </main>
@@ -347,50 +320,11 @@ const App: React.FC = () => {
       />
 
       <footer className="border-t border-white/5 bg-slate-950 py-20 px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            <div className="col-span-1 md:col-span-2">
-              <Logo className="mb-6" />
-              <p className="max-w-xs text-sm text-slate-500 leading-relaxed">
-                {t.footer.slogan}
-              </p>
-              <div className="mt-8 flex gap-6">
-                <a href="#" className="text-slate-500 hover:text-emerald-500 transition-colors">Twitter</a>
-                <a href="#" className="text-slate-500 hover:text-emerald-500 transition-colors">LinkedIn</a>
-                <a href="#" className="text-slate-500 hover:text-emerald-500 transition-colors">Crunchbase</a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="mb-6 font-bold text-white">{t.footer.products}</h4>
-              <ul className="space-y-4 text-sm text-slate-500">
-                <li><button onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('platform')?.scrollIntoView({ behavior: 'smooth' });
-                }} className="hover:text-emerald-500 transition-colors">AI OS Platform</button></li>
-                <li><button onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('strategy')?.scrollIntoView({ behavior: 'smooth' });
-                }} className="hover:text-emerald-500 transition-colors">Strategy Consultant</button></li>
-                <li><button onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('venture')?.scrollIntoView({ behavior: 'smooth' });
-                }} className="hover:text-emerald-500 transition-colors">Investment Gateway</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-6 font-bold text-white">{t.footer.contact}</h4>
-              <ul className="space-y-4 text-sm text-slate-500">
-                <li>(84) 918.18.78.55</li>
-                <li>ceo@proviewvc.com</li>
-                <li>proviewvc.com</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="mt-20 border-t border-white/5 pt-8 text-center text-[10px] font-medium text-slate-600 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} PROVIEW VC. ALL RIGHTS RESERVED. POWERED BY PROVIEW VC.
+        <div className="mx-auto max-w-7xl text-center">
+          <Logo className="mb-6 justify-center" />
+          <p className="text-sm text-slate-500 max-w-md mx-auto">{t.footer.slogan}</p>
+          <div className="mt-8 text-[10px] text-slate-600 uppercase tracking-widest">
+            &copy; {new Date().getFullYear()} PROVIEW VC. ALL RIGHTS RESERVED.
           </div>
         </div>
       </footer>
