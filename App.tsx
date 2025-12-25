@@ -416,7 +416,7 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      <ChatWidget />
+      <ChatWidget t={t} lang={lang} />
       
       <ContactForm 
         isOpen={isFormOpen} 
@@ -433,7 +433,7 @@ const App: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl text-center md:text-left border-y border-white/5 py-10">
              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Sản phẩm' : 'Products'}</h4>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{t.footer.products}</h4>
                 <ul className="text-sm text-slate-500 space-y-2">
                    <li className="hover:text-emerald-500 cursor-pointer transition-colors">AI OS Platform</li>
                    <li className="hover:text-emerald-500 cursor-pointer transition-colors">Venture Builder</li>
@@ -441,18 +441,18 @@ const App: React.FC = () => {
                 </ul>
              </div>
              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Công ty' : 'Company'}</h4>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{t.footer.company}</h4>
                 <ul className="text-sm text-slate-500 space-y-2">
-                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">About Us</li>
-                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Insights</li>
-                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Team</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">{t.nav.about}</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">{t.nav.insights}</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">{t.about.teamTitle}</li>
                 </ul>
              </div>
              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Liên hệ' : 'Contact'}</h4>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{t.footer.contact}</h4>
                 <div className="text-sm text-slate-500 space-y-2">
-                   <p className="text-slate-300 font-medium">{lang === 'vi' ? 'Địa chỉ trụ sở chính:' : 'Headquarters:'}</p>
-                   <p className="leading-relaxed">KPIBSC Building, Hà Nội, Việt Nam.</p>
+                   <p className="text-slate-300 font-medium">{t.footer.addressLabel}</p>
+                   <p className="leading-relaxed">{t.footer.address}</p>
                    <p className="pt-2">ceo@proviewvc.com</p>
                 </div>
              </div>
