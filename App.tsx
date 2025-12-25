@@ -169,9 +169,9 @@ const App: React.FC = () => {
               >
                 <div className="absolute -inset-4 bg-emerald-500/10 blur-2xl rounded-[40px]"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1551288049-bbb652167c80?q=80&w=1200&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" 
                   alt="AI OS Dashboard" 
-                  className="relative rounded-3xl border border-white/10 shadow-2xl"
+                  className="relative rounded-3xl border border-white/10 shadow-2xl transition-transform hover:scale-[1.02] duration-500"
                 />
               </motion.div>
             </div>
@@ -189,10 +189,10 @@ const App: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { label: "Angel Network", desc: "Access to 500+ global individual investors." },
-                { label: "Institutional Bridge", desc: "Connections with Top-tier VC funds." },
-                { label: "Capital Strategy", desc: "Expert fundraising roadmaps and valuations." },
-                { label: "Global Presence", desc: "Execution capability in Silicon Valley & SE Asia." }
+                { label: "Angel Network", desc: lang === 'vi' ? "Tiếp cận 500+ nhà đầu tư toàn cầu." : "Access to 500+ global individual investors.", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+                { label: "Institutional Bridge", desc: lang === 'vi' ? "Kết nối trực tiếp với các quỹ VC hàng đầu." : "Direct connections with Top-tier VC funds.", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" },
+                { label: "Capital Strategy", desc: lang === 'vi' ? "Lộ trình gọi vốn và định giá chuyên nghiệp." : "Expert fundraising roadmaps and valuations.", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+                { label: "Global Presence", desc: lang === 'vi' ? "Vận hành tại Silicon Valley & Đông Nam Á." : "Execution capability in Silicon Valley & SE Asia.", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -200,9 +200,14 @@ const App: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-8 rounded-3xl glass-panel border-white/5 hover:border-emerald-500/20 transition-all"
+                  className="p-8 rounded-3xl glass-panel border-white/5 hover:border-emerald-500/20 transition-all group"
                 >
-                  <h4 className="text-lg font-bold text-emerald-500 mb-2">{item.label}</h4>
+                  <div className="mb-4 text-emerald-500 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={item.icon} />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-white mb-2">{item.label}</h4>
                   <p className="text-sm text-slate-400">{item.desc}</p>
                 </motion.div>
               ))}
@@ -223,10 +228,12 @@ const App: React.FC = () => {
                  <span className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">{t.tech.badge}</span>
                  <h2 className="mt-6 font-heading text-4xl font-extrabold text-white">{t.tech.title}</h2>
                  <p className="mt-6 text-lg text-slate-400">
-                   Leveraging the most advanced AI infrastructure in the world to ensure zero latency and maximum accuracy for startup operations.
+                   {lang === 'vi' 
+                    ? "Tận dụng hạ tầng AI tiên tiến nhất thế giới để đảm bảo độ trễ bằng 0 và độ chính xác tối đa cho các hoạt động của startup."
+                    : "Leveraging the most advanced AI infrastructure in the world to ensure zero latency and maximum accuracy for startup operations."}
                  </p>
                  <div className="mt-10 space-y-6">
-                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5">
+                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5 group hover:border-emerald-500/20 transition-colors">
                        <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
                        </div>
@@ -235,7 +242,7 @@ const App: React.FC = () => {
                           <p className="text-xs text-slate-500">Tier 1 Data Centers & Security</p>
                        </div>
                     </div>
-                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5">
+                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5 group hover:border-emerald-500/20 transition-colors">
                        <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
                           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                        </div>
@@ -257,7 +264,7 @@ const App: React.FC = () => {
                       <p className="text-3xl font-black text-emerald-500">100%</p>
                       <p className="text-[10px] text-slate-500 uppercase tracking-widest text-center mt-2">Autonomous Operations</p>
                     </div>
-                    <div className="aspect-[4/5] rounded-3xl bg-emerald-500 flex flex-col items-center justify-center p-6 text-white">
+                    <div className="aspect-[4/5] rounded-3xl bg-emerald-500 flex flex-col items-center justify-center p-6 text-white shadow-xl shadow-emerald-500/10">
                       <p className="text-4xl font-black">24/7</p>
                       <p className="text-[10px] uppercase tracking-widest text-center mt-2 font-bold">AI Execution</p>
                     </div>
@@ -418,11 +425,42 @@ const App: React.FC = () => {
       />
 
       <footer className="border-t border-white/5 bg-slate-950 py-20 px-6">
-        <div className="mx-auto max-w-7xl text-center">
-          <Logo className="mb-6 justify-center" />
-          <p className="text-sm text-slate-500 max-w-md mx-auto">{t.footer.slogan}</p>
-          <div className="mt-8 text-[10px] text-slate-600 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} PROVIEW VC. ALL RIGHTS RESERVED.
+        <div className="mx-auto max-w-7xl flex flex-col items-center gap-10">
+          <div className="text-center">
+            <Logo className="mb-6 justify-center" />
+            <p className="text-sm text-slate-500 max-w-md mx-auto">{t.footer.slogan}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl text-center md:text-left border-y border-white/5 py-10">
+             <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Sản phẩm' : 'Products'}</h4>
+                <ul className="text-sm text-slate-500 space-y-2">
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">AI OS Platform</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Venture Builder</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Strategic Advisory</li>
+                </ul>
+             </div>
+             <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Công ty' : 'Company'}</h4>
+                <ul className="text-sm text-slate-500 space-y-2">
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">About Us</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Insights</li>
+                   <li className="hover:text-emerald-500 cursor-pointer transition-colors">Team</li>
+                </ul>
+             </div>
+             <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">{lang === 'vi' ? 'Liên hệ' : 'Contact'}</h4>
+                <div className="text-sm text-slate-500 space-y-2">
+                   <p className="text-slate-300 font-medium">{lang === 'vi' ? 'Địa chỉ trụ sở chính:' : 'Headquarters:'}</p>
+                   <p className="leading-relaxed">KPIBSC Building, Hà Nội, Việt Nam.</p>
+                   <p className="pt-2">ceo@proviewvc.com</p>
+                </div>
+             </div>
+          </div>
+
+          <div className="text-[10px] text-slate-600 uppercase tracking-widest flex flex-col items-center gap-2">
+            <span>&copy; {new Date().getFullYear()} PROVIEW VC. ALL RIGHTS RESERVED.</span>
+            <span className="text-slate-800">SECURE DISPATCH PROTOCOL ENABLED</span>
           </div>
         </div>
       </footer>
