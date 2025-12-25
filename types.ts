@@ -44,6 +44,13 @@ export interface Translation {
       coo: { name: string; role: string; bio: string; image: string };
     };
   };
+  chat: {
+    welcome: string;
+    placeholder: string;
+    error: string;
+    assistantName: string;
+    badge: string;
+  };
   form: {
     title: string;
     name: string;
@@ -72,6 +79,8 @@ export interface Translation {
     company: string;
     contact: string;
     slogan: string;
+    addressLabel: string;
+    address: string;
   };
 }
 
