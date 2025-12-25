@@ -12,7 +12,7 @@ export const translations: Record<'en' | 'vi', Translation> = {
       getStarted: 'Get Started',
     },
     hero: {
-      badge: 'Powered by KPIBSC AI BRAIN',
+      badge: 'Powered by Google Cloud Vertex AI',
       headline: 'The AI-Powered OS for $100B Startups',
       subheadline: 'Empowering founders with strategic intelligence, automated execution, and institutional capital to build the next generation of decacorns.',
       cta: 'Get Started',
@@ -61,13 +61,13 @@ export const translations: Record<'en' | 'vi', Translation> = {
           name: 'Mr. Phan Quang',
           role: 'Founder & CEO',
           bio: 'AI Visionary • Strategic Architect • Venture Capitalist.',
-          image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&h=400&auto=format&fit=crop'
+          image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop'
         },
         coo: {
           name: 'Ms. Duc Truong',
           role: 'Co-Founder & COO',
           bio: 'Operations Maestro • Financial Expert.',
-          image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&auto=format&fit=crop'
+          image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop'
         }
       }
     },
@@ -111,7 +111,7 @@ export const translations: Record<'en' | 'vi', Translation> = {
       getStarted: 'Bắt đầu ngay',
     },
     hero: {
-      badge: 'Vận hành trên Nền tảng KPIBSC AI BRAIN',
+      badge: 'Vận hành trên nền tảng Google Cloud Vertex AI',
       headline: 'Hệ điều hành AI cho Startups $100 tỷ đô',
       subheadline: 'Trao quyền cho các nhà sáng lập bằng trí tuệ chiến lược, thực thi tự động và nguồn vốn định chế để xây dựng kỳ lân thế hệ mới.',
       cta: 'Bắt đầu ngay',
