@@ -76,7 +76,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Investment Thesis Section */}
+        {/* Strategy Section */}
         <section id="strategy" className="bg-slate-900/30 py-24 px-6 border-y border-white/5">
           <div className="mx-auto max-w-7xl text-center">
             <motion.div
@@ -137,7 +137,6 @@ const App: React.FC = () => {
         {/* About Us Section */}
         <section id="about" className="py-32 px-6 overflow-hidden bg-slate-950 scroll-mt-20">
           <div className="mx-auto max-w-7xl">
-            {/* Mission Statement */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +154,6 @@ const App: React.FC = () => {
                </p>
             </motion.div>
 
-            {/* Problem & Solution Grid */}
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-32 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -198,114 +196,6 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </motion.div>
-            </div>
-
-            {/* Software Capabilities Grid */}
-            <div className="mt-24 rounded-[40px] bg-gradient-to-br from-emerald-500/20 via-emerald-500/5 to-transparent p-1">
-              <div className="bg-slate-950 rounded-[39px] p-10 lg:p-20 border border-white/5 shadow-2xl">
-                <div className="text-center mb-16">
-                  <h3 className="font-heading text-4xl font-bold text-white mb-4">Autonomous Enterprise OS</h3>
-                  <p className="text-slate-400 uppercase tracking-widest text-xs font-bold italic">Planning to Action • 100% Zero-Touch Execution</p>
-                </div>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {t.about.softwareFeatures.map((feature, idx) => (
-                    <motion.div 
-                      key={idx} 
-                      whileHover={{ scale: 1.02 }}
-                      className="flex items-start gap-4 p-6 rounded-2xl bg-slate-900/40 border border-white/5 transition-all hover:bg-slate-900/80 hover:border-emerald-500/30"
-                    >
-                      <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 text-emerald-500">
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-sm text-slate-300 font-semibold leading-snug">{feature}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Business Model Section */}
-            <div id="insights" className="mt-32 text-center py-20 border-y border-white/5 scroll-mt-20">
-                <h3 className="font-heading text-3xl font-bold text-white mb-12">{lang === 'en' ? 'Our Diversified Business Model' : 'Mô hình Kinh doanh Đa dạng'}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
-                  {[
-                    { label: lang === 'en' ? 'Strategic Consulting' : 'Tư vấn Chiến lược', type: 'High-Ticket Advisory' },
-                    { label: lang === 'en' ? 'SaaS Subscription' : 'Thuê bao SaaS', type: 'Recurring Revenue' },
-                    { label: lang === 'en' ? 'Venture Carry' : 'Lợi nhuận Đầu tư', type: 'Equity & Success Fees' }
-                  ].map((m, i) => (
-                    <div key={i} className="p-8 rounded-3xl bg-slate-900/50 border border-white/5">
-                      <p className="text-emerald-500 font-black text-xl mb-2">{m.label}</p>
-                      <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{m.type}</p>
-                    </div>
-                  ))}
-                </div>
-            </div>
-
-            {/* Founder Team */}
-            <div id="venture" className="mt-32 scroll-mt-20">
-              <h2 className="text-center font-heading text-4xl font-bold text-white mb-16">{t.about.teamTitle}</h2>
-              <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
-                {[t.about.founders.ceo, t.about.founders.coo].map((founder, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.2 }}
-                    className="group relative overflow-hidden rounded-[40px] bg-slate-900/40 border border-white/5 p-8 md:p-12 text-left backdrop-blur-sm transition-all hover:bg-slate-900/60 hover:border-emerald-500/30"
-                  >
-                    <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-                      <div className="relative h-48 w-48 flex-shrink-0">
-                        <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-2xl group-hover:opacity-60 transition-opacity"></div>
-                        <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-slate-950 bg-slate-800 shadow-2xl">
-                          <img 
-                            src={founder.image} 
-                            alt={founder.name}
-                            className="h-full w-full object-cover object-top transition-all duration-700 group-hover:scale-110"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">{founder.name}</h4>
-                        <div className="mt-3 inline-block rounded-full bg-emerald-500/10 px-4 py-1 border border-emerald-500/20">
-                          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-emerald-500">{founder.role}</p>
-                        </div>
-                        <p className="mt-6 text-sm text-slate-300 leading-relaxed font-medium">
-                          {founder.bio}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Tech Stack Section */}
-        <section className="py-24 px-6">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col items-center text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-4">{t.tech.badge}</span>
-              <h2 className="font-heading text-4xl font-bold text-white mb-16">{t.tech.title}</h2>
-              
-              <div className="grid grid-cols-2 gap-12 md:grid-cols-4 items-center">
-                <div className="flex flex-col items-center gap-4">
-                  <span className="text-xl font-bold text-white">{t.tech.googleCloud}</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-lg font-bold text-slate-300">Vertex AI</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-lg font-bold text-slate-300">BigQuery</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-lg font-bold text-slate-300">K8s Cluster</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
