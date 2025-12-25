@@ -20,7 +20,7 @@ const App: React.FC = () => {
 
       <main>
         {/* Hero Section */}
-        <section id="platform" className="relative overflow-hidden px-6 pt-24 pb-32">
+        <section id="hero" className="relative overflow-hidden px-6 pt-24 pb-32">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none"></div>
           
           <div className="mx-auto max-w-7xl">
@@ -77,7 +77,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Strategy Section */}
-        <section id="strategy" className="bg-slate-900/30 py-24 px-6 border-y border-white/5">
+        <section id="strategy" className="bg-slate-900/30 py-24 px-6 border-y border-white/5 scroll-mt-20">
           <div className="mx-auto max-w-7xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -134,6 +134,149 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* AI Platform Section */}
+        <section id="platform" className="py-24 px-6 scroll-mt-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">{t.nav.platform}</span>
+                <h2 className="mt-6 font-heading text-4xl font-extrabold text-white leading-tight">
+                  {t.about.pillars.software.title}
+                </h2>
+                <p className="mt-6 text-lg text-slate-400">
+                  {t.about.pillars.software.desc}
+                </p>
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {t.about.softwareFeatures.map((feature, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-1 h-5 w-5 flex-shrink-0 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500">
+                        <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                      <span className="text-sm text-slate-300 font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute -inset-4 bg-emerald-500/10 blur-2xl rounded-[40px]"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bbb652167c80?q=80&w=1200&auto=format&fit=crop" 
+                  alt="AI OS Dashboard" 
+                  className="relative rounded-3xl border border-white/10 shadow-2xl"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Venture Section */}
+        <section id="venture" className="py-24 px-6 bg-slate-900/50 scroll-mt-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">{t.nav.venture}</span>
+              <h2 className="mt-6 font-heading text-4xl font-extrabold text-white">{t.about.pillars.capital.title}</h2>
+              <p className="mt-6 text-xl text-slate-400 max-w-2xl mx-auto">{t.about.pillars.capital.desc}</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { label: "Angel Network", desc: "Access to 500+ global individual investors." },
+                { label: "Institutional Bridge", desc: "Connections with Top-tier VC funds." },
+                { label: "Capital Strategy", desc: "Expert fundraising roadmaps and valuations." },
+                { label: "Global Presence", desc: "Execution capability in Silicon Valley & SE Asia." }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-8 rounded-3xl glass-panel border-white/5 hover:border-emerald-500/20 transition-all"
+                >
+                  <h4 className="text-lg font-bold text-emerald-500 mb-2">{item.label}</h4>
+                  <p className="text-sm text-slate-400">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Insights Section (Tech Stack) */}
+        <section id="insights" className="py-24 px-6 scroll-mt-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+               <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex-1"
+               >
+                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">{t.tech.badge}</span>
+                 <h2 className="mt-6 font-heading text-4xl font-extrabold text-white">{t.tech.title}</h2>
+                 <p className="mt-6 text-lg text-slate-400">
+                   Leveraging the most advanced AI infrastructure in the world to ensure zero latency and maximum accuracy for startup operations.
+                 </p>
+                 <div className="mt-10 space-y-6">
+                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5">
+                       <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+                       </div>
+                       <div>
+                          <h4 className="font-bold text-white">{t.tech.googleCloud}</h4>
+                          <p className="text-xs text-slate-500">Tier 1 Data Centers & Security</p>
+                       </div>
+                    </div>
+                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-slate-900 border border-white/5">
+                       <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                       </div>
+                       <div>
+                          <h4 className="font-bold text-white">{t.tech.vertexAI}</h4>
+                          <p className="text-xs text-slate-500">Next-gen Model Garden Integration</p>
+                       </div>
+                    </div>
+                 </div>
+               </motion.div>
+               <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="flex-1 grid grid-cols-2 gap-4"
+               >
+                  <div className="mt-12 space-y-4">
+                    <div className="aspect-square rounded-3xl bg-slate-900 border border-emerald-500/20 flex flex-col items-center justify-center p-6">
+                      <p className="text-3xl font-black text-emerald-500">100%</p>
+                      <p className="text-[10px] text-slate-500 uppercase tracking-widest text-center mt-2">Autonomous Operations</p>
+                    </div>
+                    <div className="aspect-[4/5] rounded-3xl bg-emerald-500 flex flex-col items-center justify-center p-6 text-white">
+                      <p className="text-4xl font-black">24/7</p>
+                      <p className="text-[10px] uppercase tracking-widest text-center mt-2 font-bold">AI Execution</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="aspect-[4/5] rounded-3xl bg-slate-900 border border-white/5 flex flex-col items-center justify-center p-6">
+                      <p className="text-3xl font-black text-white">0.2s</p>
+                      <p className="text-[10px] text-slate-500 uppercase tracking-widest text-center mt-2">Decision Latency</p>
+                    </div>
+                    <div className="aspect-square rounded-3xl bg-slate-800/50 flex flex-col items-center justify-center p-6 border border-white/5">
+                      <p className="text-3xl font-black text-emerald-500">99.9%</p>
+                      <p className="text-[10px] text-slate-500 uppercase tracking-widest text-center mt-2">Data Accuracy</p>
+                    </div>
+                  </div>
+               </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* About Us Section */}
         <section id="about" className="py-32 px-6 overflow-hidden bg-slate-950 scroll-mt-20">
           <div className="mx-auto max-w-7xl">
@@ -147,11 +290,6 @@ const App: React.FC = () => {
                <h2 className="mt-8 font-heading text-4xl font-extrabold text-white leading-tight md:text-6xl max-w-5xl mx-auto">
                  {lang === 'en' ? 'Bridging the Execution Gap with the World’s First AI-First Operating System.' : 'Xóa bỏ "Khoảng cách thực thi" bằng Hệ điều hành ưu tiên AI đầu tiên trên thế giới.'}
                </h2>
-               <p className="mt-8 text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                 {lang === 'en' 
-                    ? "We don't just advise; we build the infrastructure for global dominance. Integrating high-level strategy, autonomous execution, and institutional capital."
-                    : "Chúng tôi không chỉ tư vấn; chúng tôi xây dựng hạ tầng để thống trị toàn cầu. Tích hợp chiến lược cao cấp, thực thi tự chủ và vốn định chế."}
-               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-32 items-center">
@@ -196,6 +334,76 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </motion.div>
+            </div>
+
+            {/* Founders Section */}
+            <div className="mt-32">
+              <motion.h3 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-center font-heading text-3xl font-bold text-white mb-16"
+              >
+                {t.about.teamTitle}
+              </motion.h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                {/* Founder 1 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="group relative overflow-hidden rounded-[40px] bg-slate-900 border border-white/5 p-8 transition-all hover:border-emerald-500/30"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-8 h-48 w-48 overflow-hidden rounded-full border-4 border-emerald-500/20 group-hover:border-emerald-500/50 transition-all">
+                      <img 
+                        src={t.about.founders.ceo.image} 
+                        alt={t.about.founders.ceo.name} 
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <h4 className="text-2xl font-bold text-white">{t.about.founders.ceo.name}</h4>
+                    <p className="text-sm font-bold text-emerald-500 uppercase tracking-widest mt-1">{t.about.founders.ceo.role}</p>
+                    <p className="mt-6 text-slate-400 italic leading-relaxed">
+                      "{t.about.founders.ceo.bio}"
+                    </p>
+                    <div className="mt-8 flex gap-4">
+                      <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Founder 2 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="group relative overflow-hidden rounded-[40px] bg-slate-900 border border-white/5 p-8 transition-all hover:border-emerald-500/30"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-8 h-48 w-48 overflow-hidden rounded-full border-4 border-emerald-500/20 group-hover:border-emerald-500/50 transition-all">
+                      <img 
+                        src={t.about.founders.coo.image} 
+                        alt={t.about.founders.coo.name} 
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <h4 className="text-2xl font-bold text-white">{t.about.founders.coo.name}</h4>
+                    <p className="text-sm font-bold text-emerald-500 uppercase tracking-widest mt-1">{t.about.founders.coo.role}</p>
+                    <p className="mt-6 text-slate-400 italic leading-relaxed">
+                      "{t.about.founders.coo.bio}"
+                    </p>
+                    <div className="mt-8 flex gap-4">
+                      <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
