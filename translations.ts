@@ -111,7 +111,7 @@ export const translations: Record<'en' | 'vi', Translation> = {
       getStarted: 'Bắt đầu ngay',
     },
     hero: {
-      badge: 'Vận hành trên nền tảng Google Cloud Vertex AI',
+      badge: 'Vận hành trên Nền tảng KPIBSC AI BRAIN',
       headline: 'Hệ điều hành AI cho Startups $100 tỷ đô',
       subheadline: 'Trao quyền cho các nhà sáng lập bằng trí tuệ chiến lược, thực thi tự động và nguồn vốn định chế để xây dựng kỳ lân thế hệ mới.',
       cta: 'Bắt đầu ngay',
