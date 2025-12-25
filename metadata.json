@@ -1,0 +1,8 @@
+{
+  "name": "PROVIEW VC | AI-Powered Startup OS",
+  "description": "The institutional-grade AI platform for high-growth startups, leveraging Google Cloud and Vertex AI to drive exponential scalability.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

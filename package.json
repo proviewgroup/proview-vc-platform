@@ -1,0 +1,19 @@
+
+{
+  "name": "proview-vc-platform",
+  "version": "1.0.0",
+  "description": "AI-Powered Startup OS for PROVIEW VC",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.9.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "framer-motion": "^12.0.0",
+    "@google/genai": "^1.34.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.0.0"
+  }
+}
