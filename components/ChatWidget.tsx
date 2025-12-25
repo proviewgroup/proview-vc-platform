@@ -2,13 +2,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { consultWithAI } from '../services/geminiService.ts';
+import { Translation, Language } from '../types.ts';
 
 interface ChatMessage {
   role: 'user' | 'model';
   parts: { text: string }[];
 }
 
-export const ChatWidget: React.FC = () => {
+interface ChatWidgetProps {
+  t: Translation;
+  lang: Language;
+}
+
+export const ChatWidget: React.FC<ChatWidgetProps> = ({ t, lang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [history, setHistory] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -21,6 +27,11 @@ export const ChatWidget: React.FC = () => {
     }
   }, [history, isLoading]);
 
+  // Reset history when language changes to show new welcome message
+  useEffect(() => {
+    setHistory([]);
+  }, [lang]);
+
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
@@ -32,14 +43,14 @@ export const ChatWidget: React.FC = () => {
 
     try {
       const recentHistory = history.slice(-6);
-      const responseText = await consultWithAI(userText, recentHistory);
+      const responseText = await consultWithAI(userText, lang, recentHistory);
       
       const modelMsg: ChatMessage = { role: 'model', parts: [{ text: responseText || '' }] };
       setHistory(prev => [...prev, modelMsg]);
     } catch (error) {
       const errorMsg: ChatMessage = { 
         role: 'model', 
-        parts: [{ text: 'Hệ thống AI đang được bảo trì. Vui lòng liên hệ trực tiếp với chúng tôi tại proviewvc.com.' }] 
+        parts: [{ text: t.chat.error }] 
       };
       setHistory(prev => [...prev, errorMsg]);
     } finally {
@@ -63,8 +74,8 @@ export const ChatWidget: React.FC = () => {
                   <svg fill="currentColor" viewBox="0 0 24 24" className="h-full w-full"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold">PROVIEW AI</h3>
-                  <p className="text-[9px] uppercase tracking-widest opacity-80">Venture Builder Assistant</p>
+                  <h3 className="text-sm font-bold">{t.chat.assistantName}</h3>
+                  <p className="text-[9px] uppercase tracking-widest opacity-80">{t.chat.badge}</p>
                 </div>
               </div>
             </div>
@@ -73,7 +84,7 @@ export const ChatWidget: React.FC = () => {
               {history.length === 0 && (
                 <div className="flex justify-start">
                   <div className="max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed bg-slate-900 text-slate-300 border border-white/5">
-                    Chào bạn, tôi là trợ lý AI của PROVIEW VC. Bạn cần tư vấn về Chiến lược hay Gọi vốn?
+                    {t.chat.welcome}
                   </div>
                 </div>
               )}
@@ -104,7 +115,7 @@ export const ChatWidget: React.FC = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Hỏi về SWOT, gọi vốn..."
+                  placeholder={t.chat.placeholder}
                   className="w-full bg-slate-900 border border-white/5 rounded-full py-2.5 px-5 text-xs text-white focus:outline-none focus:border-emerald-500"
                 />
                 <button onClick={handleSend} disabled={isLoading} className="absolute right-1.5 h-7 w-7 bg-emerald-500 rounded-full flex items-center justify-center text-white">
