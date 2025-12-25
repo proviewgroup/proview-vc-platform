@@ -12,7 +12,7 @@ export const translations: Record<'en' | 'vi', Translation> = {
       getStarted: 'Get Started',
     },
     hero: {
-      badge: 'Powered by Google Cloud Vertex AI',
+      badge: 'Powered by KPIBSC AI BRAIN',
       headline: 'The AI-Powered OS for $100B Startups',
       subheadline: 'Empowering founders with strategic intelligence, automated execution, and institutional capital to build the next generation of decacorns.',
       cta: 'Get Started',
