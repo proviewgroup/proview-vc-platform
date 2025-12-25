@@ -61,15 +61,22 @@ export const translations: Record<'en' | 'vi', Translation> = {
           name: 'Mr. Phan Quang',
           role: 'Founder & CEO',
           bio: 'AI Visionary • Strategic Architect • Venture Capitalist.',
-          image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop'
+          image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&h=400&auto=format&fit=crop'
         },
         coo: {
           name: 'Ms. Duc Truong',
           role: 'Co-Founder & COO',
           bio: 'Operations Maestro • Financial Expert.',
-          image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop'
+          image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&auto=format&fit=crop'
         }
       }
+    },
+    chat: {
+      welcome: 'Hello, I am PROVIEW VC AI Assistant. How can I assist you with Strategy or Fundraising today?',
+      placeholder: 'Ask about SWOT, OKR, Fundraising...',
+      error: 'AI System is under maintenance. Please contact us directly at proviewvc.com.',
+      assistantName: 'PROVIEW AI',
+      badge: 'Venture Builder Assistant'
     },
     form: {
       title: 'Get Started with PROVIEW VC',
@@ -99,6 +106,8 @@ export const translations: Record<'en' | 'vi', Translation> = {
       company: 'Company',
       contact: 'Contact',
       slogan: 'AI-Powered OS Platform for Future. Automation - Intelligence - Precision - Autonomous Operations.',
+      addressLabel: 'Headquarters:',
+      address: 'KPIBSC Building, Hanoi, Vietnam.'
     },
   },
   vi: {
@@ -170,6 +179,13 @@ export const translations: Record<'en' | 'vi', Translation> = {
         }
       }
     },
+    chat: {
+      welcome: 'Chào bạn, tôi là trợ lý AI của PROVIEW VC. Bạn cần tư vấn về Chiến lược hay Gọi vốn?',
+      placeholder: 'Hỏi về SWOT, OKR, Gọi vốn...',
+      error: 'Hệ thống AI đang được bảo trì. Vui lòng liên hệ trực tiếp với chúng tôi tại proviewvc.com.',
+      assistantName: 'PROVIEW AI',
+      badge: 'Trợ lý Venture Builder'
+    },
     form: {
       title: 'Hợp tác cùng PROVIEW VC',
       name: 'Họ tên',
@@ -198,6 +214,8 @@ export const translations: Record<'en' | 'vi', Translation> = {
       company: 'Công ty',
       contact: 'Liên hệ',
       slogan: 'Nền tảng hệ điều hành AI cho tương lai. Tự động hóa - Thông minh - Chính xác - Vận hành tự động.',
+      addressLabel: 'Địa chỉ trụ sở chính:',
+      address: 'KPIBSC Building, Hà Nội, Việt Nam.'
     },
   },
 };
